@@ -37,9 +37,6 @@ if [[ -n $status ]]; then
 fi
 
 # the P flag allows for absolute file names. We want the full path in the archive
-echo "Restoring /etc/ssh"
-aws s3 cp s3://dc-backups-sdihuf/ssh.tar.gz - | sudo tar xzfP -
-
 echo "Restoring draftcab data"
 aws s3 cp s3://dc-backups-sdihuf/backup.tar.gz - | sudo tar xzfP -
 
