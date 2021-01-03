@@ -44,4 +44,4 @@ echo "Backing up draftcab data"
 sudo tar czfP - ~/draftcab/docker | aws s3 cp - s3://dc-backups-sdihuf/backup.tar.gz
 
 echo "Backing up secrets"
-tar czfP - ~/.ssh ~/secrets.env | aws s3 cp - s3://dc-backups-sdihuf/secrets.tar.gz
+tar czfP - ~/.aws ~/.ssh ~/secrets.env | aws s3 cp - s3://dc-backups-sdihuf/secrets.tar.gz
