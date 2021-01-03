@@ -7,6 +7,9 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+echo "Updaing APT..."
+apt-get -y update 
+
 echo "Installing prerequisites..."
 apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common awscli
 
