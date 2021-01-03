@@ -8,7 +8,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 echo "Installing prerequisites..."
-apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common awscli
 
 echo "Adding Docker GPG key..."
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 
