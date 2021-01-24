@@ -10,7 +10,7 @@ fi
 if ! $(id -nGz "$USER" | grep -qzxF "docker")
 then
   echo "User ${USER} does not belong to the docker group. Please run init-docker.sh or reboot if necessary."
-  exit  
+  exit
 fi
 
 CERT_PATH="data/certbot/conf/live/draftcab.io"
@@ -25,7 +25,7 @@ fi
 
 echo "Cloning Draftcab..."
 cd ~/
-git clone git@github.com:draftcab/draftcab.git
+git clone git@github.com:draftcab/platform.git
 
 echo "Copying SSL certificate and relaxing permissions..."
 sudo cp -r ~/nginx-certbot/data/certbot ~/draftcab/docker/
