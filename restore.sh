@@ -6,7 +6,7 @@ BUCKET_PATH="s3://dc-backups-sdihuf"
 
 echo "Checking permissions..."
 # Check if user is root. We need to be ubuntu as that's where the AWS credentials are stored. Root won't have permission (strange, I know)
-if [ "$EUID" -eq 0 ]
+if [ "${EUID}" -eq 0 ]
 then echo "Please run as ubuntu (don't use sudo)"
   exit
 fi

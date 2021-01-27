@@ -6,7 +6,7 @@ BUCKET_PATH="s3://dc-backups-sdihuf"
 
 echo "Checking permissions..."
 # Check if user is root. We need to be ubuntu as that's where the AWS credentials are stored. Root won't have permission (strange, I know)
-if [ "$EUID" -eq 0 ]
+if [ "${EUID}" -eq 0 ]
 then echo "Please run as ubuntu (don't use sudo)"
   exit
 fi
@@ -38,7 +38,7 @@ fi
 
 # the P flag allows for absolute file names. We want the full path in the archive
 echo "Backing up draftcab data"
-sudo tar czfP - ~/draftcab/docker | aws s3 cp - s3://dc-backups-sdihuf/backup.tar.gz
+sudo tar czfP - ${HOME}/draftcab/modules/draftcab-ui/docker | aws s3 cp - s3://dc-backups-sdihuf/backup.tar.gz
 
 echo "Backing up secrets"
-sudo tar czfP - ~/.aws ~/.ssh ~/secrets.env /etc/ssh | aws s3 cp - s3://dc-backups-sdihuf/secrets.tar.gz
+sudo tar czfP - ${HOME}/.aws ${HOME}/.ssh ${HOME}/secrets.env /etc/ssh | aws s3 cp - s3://dc-backups-sdihuf/secrets.tar.gz
